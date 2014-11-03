@@ -1,0 +1,38 @@
+<div class="header">
+  <h1>DBC Yelp!</h1>
+  <div class="home">
+
+    <% if @user %>
+    <form action="/logout" method="POST">
+      <input type="submit" value="Logout" />
+    </form>
+    <form action="/reviews/new" method="GET" >
+        <input type="submit" value="Create Review" />
+      </form>
+      <% end %>
+
+    <% unless @user %>
+    <form action='/login' method='Get'>
+      <input type='submit' value="Login"/>
+    </form>
+
+    <form action="/signup" method="GET">
+      <input type="submit" value="SignUp" />
+    </form>
+      <%end%>
+</div>
+  </div>
+<div class="container">
+  <% if @user %>
+  <p class="center">Welcome <%= @user.name %>!</p>
+  <% end %>
+  <% @reviews.each do |review|%>
+  <ul>
+    <li><%= review.restaurant.name%> - <%= "(ٛ⁎꒪̕ॢ ˙̫ ꒪ٛ̕ॢ⁎)" * review.restaurant.average_rating %></li>
+    <p><%= review.critique %></p>
+    </ul>
+      <% end%>
+
+</div>
+
+

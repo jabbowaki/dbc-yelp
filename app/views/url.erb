@@ -1,0 +1,20 @@
+
+<div class="container">
+  <h1>Welcome to Cats...Cats Everywhere!</h1>
+  <h3>Hello <%= @user.name %></h3>
+
+  <form action="/" method="Post">
+    <input type="submit" value="Logout"/>
+  </form>
+
+  <form action="/urls" method="post">
+    URL to shorten:
+    <br>
+    <input type="text" name="user_url">
+    <input type="submit" value="Shorten it!">
+  </form>
+  <h3>Your new link:</h3>
+  <h3> <a href="/<%= Url.last.shortened_url %>">localhost:9393/<%= Url.last.shortened_url %></a> </h3>
+</div>
+
+
